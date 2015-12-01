@@ -4,6 +4,7 @@ static int		ft_read(int const fd, char **doc)
 {
 	int result;
 	char *buff;
+	char *temp;
 
 	buff = (char*)malloc(sizeof(*buff) * (BUFF_SIZE));
 	if (buff == NULL)
@@ -12,7 +13,8 @@ static int		ft_read(int const fd, char **doc)
 	if (result > 0)
 	{
 		buff[result] = '\0';
-		*doc = buff;
+		temp = buff;
+		*doc = ft_strjoin(*doc, temp);
 	}
 	free(buff);
 	return (result);
@@ -42,6 +44,6 @@ int				get_next_line(int const fd, char **line)
 			return (-1);
 	}
 	*line = ft_strsub(doc, 0, ft_strlen(doc)-ft_strlen(end_of_line));
-	doc = ft_strdup(end_of_line);
+	doc = ft_strdup(end_of_line + 1);
 	return (1);
 }
