@@ -41,7 +41,7 @@ int				get_next_line(int const fd, char **line)
 		else if (result < 0)
 			return (-1);
 	}
-	*line = ft_strsub(stock, 0, ft_strlen(stock)-ft_strlen(end_of_line));
-	stock = ft_strdup(end_of_line);
+	*line = ft_strsub(doc, 0, ft_strlen(doc)-ft_strlen(end_of_line));
+	doc = ft_strdup(end_of_line);
 	return (1);
 }
