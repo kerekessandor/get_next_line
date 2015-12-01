@@ -31,10 +31,10 @@ int				get_next_line(int const fd, char **line)
 		doc = (char*)malloc(sizeof(*doc));
 	if (doc == NULL || fd < 0)
 		return (-1);
+	end_of_line = ft_strchr(doc, '\n');
 	while (end_of_line == NULL)
 	{
 		result = ft_read(fd, &doc);
-		end_of_line = ft_strchr(doc, '\n');
 		if (result == 0)
 		{
 			if (ft_strlen(doc) == 0)
